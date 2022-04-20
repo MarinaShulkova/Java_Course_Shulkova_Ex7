@@ -1,5 +1,5 @@
 public interface Printable {
 
-    void print ();
+    void print (int order, int cost, int weight, String status);
 
 }

@@ -1,12 +1,29 @@
-public class Employee extends  Person implements Printable {
+public class Employee extends Order {
 
     public Employee() {
     }
 
     @Override
-    void print(int id_client, Order order) {
-        System.out.printf("ID Client: %d, order: %s, cost: %d, weight: %d, order status: %s", id_client, order.getId(), order.getCost(), order.getWeight(), order.getStatus());
+    public String MakeOrder(String status) {
+        switch (status) {
+            case "":
+                status = "Processing";
+                return status;
+            case "Processing":
+                status = "Sending";
+                return status;
+            case "Sending":
+                status = "Send";
+                return status;
 
+            default:
+                System.out.println("Processing error");
+                break;
+        } return status;
+    }
+
+    @Override
+    public void print (int order, int cost, int weight, String status) {
+        System.out.printf("New order: %s, weight: %d kg, order status: %s", order, weight, status);
     }
 }
-
