@@ -1,24 +1,31 @@
-import static java.lang.Integer.parseInt;
-
 public class Main {
 
     public static void main(String[] args) {
-    int order = 12;
-    int cost = 34;
-    int weight = 12;
-    String status = "";
 
-        Order client = new Client("Vasya");
-        Order employee = new Employee();
+        Order order = new Order(12, 34, 12, "Created");
+        Order order_equals = new Order(12, 34, 12, "Created");
 
-        order = parseInt(client.MakeOrder(Integer.toString(order)));
-        status = employee.MakeOrder(status);
+        Client client = new Client("Vasya", order);
+        Employee employee = new Employee(order, client);
 
-        client.print(order, cost, weight, status);
+        System.out.println(order.equals(order_equals));
+        order.setOrder(order.makeOrder(order.order));
+        order.setStatus(order.makeOrder(order.status));
+        System.out.println(order.order);
+        System.out.println(order.status);
+        client.print(order);
         System.out.println();
-        employee.print(order, cost, weight, status);
+        employee.print(order);
+        System.out.println();
 
- //       System.out.println(client.toString());
+        System.out.println(order.hashCode());
+
 
     }
 }
+
+
+
+
+
+

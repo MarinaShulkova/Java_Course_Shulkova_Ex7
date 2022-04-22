@@ -1,5 +1,3 @@
-public interface Printable {
-
-    void print (int order, int cost, int weight, String status);
-
+public interface Printable <T extends Order>{
+    void print (T order);
 }

@@ -1,30 +1,20 @@
-import static java.lang.Integer.parseInt;
+public class Client<C, T extends Order> implements Printable{
+    private T order;
+    C client;
+    int order_id;
+    int cost;
+    int weight;
+    String status;
 
-public class Client<T> extends Order{
-    private T client;
-
-    public Client(T client) {
+    public Client(C client, T order) {
         this.client = client;
+        this.status = order.status;
+
     }
 
     @Override
-    public String MakeOrder(String order) {
-        int order1 = parseInt(order) + 1;
-        return Integer.toString(order1);
+    public void print(Order order) {
+        System.out.printf("Dear, %s! Your order number is %d and the cost is %d usd. Your order has sent to our employee. Current status is %s", client, order.order, cost, status);
     }
 
-    @Override
-    // переопределяем print() из интерфейса Printable
-    public void print(int order, int cost, int weight, String status) {
-        System.out.printf("Dear, %s! Your order number %s, cost: %d rub", client, order, cost);
-    }
-
-/*    @Override
-    public String toString() {
-        return String.valueOf(client);
-    }
-
-    public T getClient() {
-        return client;
-    }*/
 }

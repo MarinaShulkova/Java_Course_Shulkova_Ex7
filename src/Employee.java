@@ -1,29 +1,18 @@
-public class Employee extends Order {
+public class Employee <T extends Order,C extends Client> implements Printable{
+    T order;
+    C client;
+    int order_id;
+    int cost;
+    int weight;
+    String status;
+    public Employee(T order, C client) {
+        this.client = client;
 
-    public Employee() {
     }
 
     @Override
-    public String MakeOrder(String status) {
-        switch (status) {
-            case "":
-                status = "Processing";
-                return status;
-            case "Processing":
-                status = "Sending";
-                return status;
-            case "Sending":
-                status = "Send";
-                return status;
-
-            default:
-                System.out.println("Processing error");
-                break;
-        } return status;
+    public void print (Order order) {
+        System.out.printf("New order: %s, from client: %s weight: %d lbs, order status changed to: %s", order.order, client.client, weight, order.status);
     }
 
-    @Override
-    public void print (int order, int cost, int weight, String status) {
-        System.out.printf("New order: %s, weight: %d kg, order status: %s", order, weight, status);
-    }
 }
