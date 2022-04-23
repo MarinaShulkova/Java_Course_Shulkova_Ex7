@@ -8,19 +8,23 @@ public class Main {
         Client client = new Client("Vasya", order);
         Employee employee = new Employee(order, client);
 
-        System.out.println(order.equals(order_equals));
+//вызов метода makeOrder()
         order.setOrder(order.makeOrder(order.order));
         order.setStatus(order.makeOrder(order.status));
-        System.out.println(order.order);
-        System.out.println(order.status);
+
+// вызов метода print()
         client.print(order);
         System.out.println();
+
         employee.print(order);
         System.out.println();
+        System.out.println();
 
+
+// переопределение классов Object
         System.out.println(order.hashCode());
-
-
+        System.out.println(order.equals(order_equals));
+        System.out.println(order.toString());
     }
 }
 

@@ -10,6 +10,7 @@ public class Employee <T extends Order,C extends Client> implements Printable{
 
     }
 
+// переопределение метода print() интерфейса Printable
     @Override
     public void print (Order order) {
         System.out.printf("New order: %s, from client: %s weight: %d lbs, order status changed to: %s", order.order, client.client, weight, order.status);

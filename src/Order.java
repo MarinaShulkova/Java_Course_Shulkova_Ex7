@@ -1,4 +1,4 @@
-public class Order implements MakeOrder{
+public class Order implements MakeOrder {
     public int order;
     public int cost;
     public int weight;
@@ -10,13 +10,14 @@ public class Order implements MakeOrder{
         this.weight = weight;
         this.status = status;
     }
-
+// Переопределение метода makeOrder(): формирование нового номера заказа
     @Override
     public int makeOrder(int order) {
         order = order + 1;
         return order;
     }
 
+// Переопределение метода makeOrder(): изменение статуса заказа
     @Override
     public String makeOrder(String status) {
         switch (status) {
@@ -45,24 +46,24 @@ public class Order implements MakeOrder{
         this.status = status;
     }
 
+// переопределение методов Object
     @Override
     public int hashCode() {
 
-        System.out.println("sleep");
+        System.out.print("@Override hashCode method: ");
         return super.hashCode();
     }
-
 
 
     @Override
     public boolean equals(Object obj) {
         Order order = (Order) obj;
-        System.out.println("@Override equals method");
-         return this.order == order.order && this.cost == order.cost && this.weight == order.weight && this.status.equals(order.status);
+        System.out.print("@Override equals method: ");
+        return this.order == order.order && this.cost == order.cost && this.weight == order.weight && this.status.equals(order.status);
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "@Override toString method: order = " + order + ", cost = " + cost + ", weight = " + weight + ", status = " + status;
     }
 }
